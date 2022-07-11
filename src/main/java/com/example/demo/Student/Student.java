@@ -1,23 +1,27 @@
 package com.example.demo.Student;
 
-public class Student {
-    private String email;
-    private String password;
-    private String first_name;
-    private String last_name;
+import javax.persistence.*;
 
+@Entity
+public class Student {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column
+    private String email;
+    @Column
+    private String password;
+    @Column
+    private String first_name;
+    @Column
+    private String last_name;
+    @Column
     private String major;
 
-    public Student(String email, String password, String first_name,
-                   String last_name, String major)
+    public long getId()
     {
-        this.email = email;
-        this.password = password;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.major = major;
+        return id;
     }
-
     public String getEmail() {
         return email;
     }
